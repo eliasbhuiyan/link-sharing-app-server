@@ -24,6 +24,7 @@ const updateUser = async (req, res) => {
                     user.fullName = `${firstName} ${lastName}`;
                     await user.save();
                     const userData = await userScema.aggregate([
+                        { $match: { _id: user._id } },
                         {
                             $project: {
                                 _id: 1,
