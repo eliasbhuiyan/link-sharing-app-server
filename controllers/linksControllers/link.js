@@ -50,6 +50,7 @@ const addLink = async (req, res) => {
     )
 
     const userData = await userScema.aggregate([
+        { $match: { _id: userId } },
         {
             $project: {
                 _id: 1,
