@@ -43,6 +43,7 @@ const loginControllers = async (req, res) => {
                     { new: true }
                   );
                   const userData = await User.aggregate([
+                    { $match: { _id: existingUser._id } },
                     {
                       $project: {
                         _id: 1,
