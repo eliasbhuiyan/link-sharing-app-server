@@ -48,9 +48,9 @@ const addLink = async (req, res) => {
             upsert: true,
         }
     )
-
+    
     const userData = await userScema.aggregate([
-        { $match: { _id: userId } },
+        { $match: { _id: new mongoose.Types.ObjectId(userId) } },
         {
             $project: {
                 _id: 1,
@@ -62,6 +62,7 @@ const addLink = async (req, res) => {
             },
         },
     ]);
+    
     res.status(200).send({
         message: "Link updated Successfully!",
         userData,
