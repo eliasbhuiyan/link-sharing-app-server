@@ -13,6 +13,7 @@ app.use(cors(
   {
     origin: [
       "https://link-sharing-app-eb.vercel.app",
+      "http://localhost:5173"
     ],
     credentials: true
   }
